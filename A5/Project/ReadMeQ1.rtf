@@ -1,0 +1,63 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1561\cocoasubrtf200
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\margl1440\margr1440\vieww15860\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 DESIGN TECHNIQUES/PATTERNS\
+Abstract Classes:\
+	Cool303Button\
+	Cool303Box\
+	Cool303Root\
+	Cool303Theme\
+\
+	- most of the abstract classes had protected attributes that could be altered by the children ~~ PROTECTED\
+\
+	- the abstract classes would define abstract methods that would force the children to 	implement ~~ CONTRACT\
+\
+	- each abstract class wraps around a Swing Component ~~ DECORATOR PATTERN\
+\
+	- each child of the abstract class either implements or alters the methods from its parent ~~ DECORATOR PATTERN\
+	\
+	- Cool303Button contains a nested class ButtonClickListener which implements ActionListener ~~ INTERFACE, CODE REUSE \
+\
+	-Cool303Theme contains all the attributes and methods ~ CODE REUSE\
+\
+Concrete Classes:\
+	Cool303Button_RoundRectangle\
+	Cool303Button_Ellipse\
+	Cool303Box_RoundRectangle\
+	Cool303Box_Ellipse\
+	Cool303Root_RoundRectangle\
+	Cool303Root_Ellipse\
+	Cool303Theme_Pastel\
+	Cool303Theme_Summer\
+	Cool303Border\
+	Cool303Window\
+\
+	- Cool303Box_RoundRectangle, Cool303Box_Ellipse contain Arraylists of their respective buttons and add them each to 	their own panel ~~ COMPOSITE PATTERN\
+\
+	-Cool303Root_RoundRectangle, Cool303Root_Ellipse contain ArrayLists of their respective buttons as well as borders and\
+	add each of them to their own panel ~~ COMPOSITE PATTERN\
+\
+	- Cool303Window contains a list of Roots and adds all of them to the panel ~~ COMPOSITE PATTERN, CODE REUSE\
+\
+\
+Instructions to make your own Theme:\
+1. Extend Cool303Theme \
+	- set the colors for root, box, button, and set the string of your theme\
+2. Extend Cool303Button \
+	- create your own button shape for the theme\
+3. Extend Cool303Box \
+	- create your own box  for the theme and set it\'92s shape\
+	- your box will need a list to hold the buttons\
+4. Extend Cool303Root\
+	- implement the necessary methods\
+	- your root will need a list for boxes and a list for borders\
+5. Extend Cool303Border\
+	- Override setTheme method and set the color of the border by getting the borderColor from the theme\
+6. Extend Cool303Window\
+	- Override setTheme and instantiate your theme there as well as the the list of roots\
+	- Override setUpRoots and fill your list of roots there\
+}
